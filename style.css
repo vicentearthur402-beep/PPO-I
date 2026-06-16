@@ -1,0 +1,109 @@
+body {
+    background-color: rgb(220, 204, 204);
+}
+
+#title {
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+}
+
+#jogo {
+    background-color: black;
+    height: 350px;
+    width: 700px;
+     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+
+.placar {
+    position: absolute;
+    top: calc(50% + 200px);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    font-size: 10px;
+}
+
+.placar input {
+    width: 80px;
+    text-align: center;
+    font-size: 30px;
+    padding: 5px;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 220px;
+    height: 100vh;
+    background-color: #222;
+
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 20px;
+}
+
+.sidebar a:hover {
+    background-color: #444;
+}
+
+.conteudo {
+    margin-left: 220px;
+}
+
+#menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: #222;
+    transition: left 0.3s ease;
+}
+
+.sidebar.aberta {
+    left: 0;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+}
+
+#close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
