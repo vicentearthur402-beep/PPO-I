@@ -10,6 +10,24 @@ body {
     font-size: 50px;
 }
 
+#time {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    background-color: #222;
+    color: white;
+
+    padding: 10px 15px;
+    border-radius: 8px;
+
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
 #jogo {
     background-color: black;
     height: 350px;
@@ -27,8 +45,9 @@ body {
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 20px;
-    font-size: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 .placar input {
@@ -106,4 +125,24 @@ body {
     align-self: flex-end;
     margin-right: 15px;
     margin-bottom: 10px;
+}
+
+#submitScore {
+    width: 67%;
+    height: 50px;
+    
+}
+
+#zico {
+    width: 100px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
 }

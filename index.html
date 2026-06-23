@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PitacoBet</title>
+    <title>Palpites</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,11 +15,13 @@
     <button id="menu-btn">☰</button>
     <div class="sidebar" id="sidebar">
         <button id="close-btn">✖</button>
-        <a href="index.html">• Palpites</a>
+        <a href="index.html">• Rodada Atual</a>
         <a href="nextGames.html">• Próximos Jogos</a>
+        <a href="oldScores.html">• Placares já resgistrados</a>
     </div>
     <section>
-        <h1 id="title">Pitacobet - Faça seus palpites!</h1>
+        <h1 id="title">Pitacobet - Faça seus palpites do Brasileirão!</h1>
+            <p id="time">Hora: </p>
     </section>
     <section>
         <div id="jogo"></div>
@@ -27,13 +29,14 @@
             <input type="number" id="placar1" value="0" min="0">
             <h1>X</h1>
             <input type="number" id="placar2" value="0" min="0">
+            <button id="submitScore">Enviar Palpite!</button>
         </div>
     </section>
     <section>
     </section>
 
 
-<img src="images/francisco.png">
+<img id="zico" src="images/francisco.png">
 </body>
 <script src="script.js">
 </script>
