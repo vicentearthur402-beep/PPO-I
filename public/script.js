@@ -1,37 +1,17 @@
-const menuBtn = document.getElementById("menu-btn");
-const sidebar = document.getElementById("sidebar");
-const closeBtn = document.getElementById("close-btn")
-
-menuBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("aberta");
-})
-
-closeBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("aberta");
-})
-
-function atualizarHora() {
-    const agora = new Date();
-    document.getElementById("time").textContent =
-     agora.toLocaleString("pt-BR");
-}
-
-atualizarHora();
-setInterval(atualizarHora, 1000);
-
-// ---------------------------------------------------------------------------------------
-
+console.log("script carregou");
 const API_URL =
     "https://www.thesportsdb.com/api/v1/json/123/eventsnextleague.php?id=4351";
+
+    let jogoAtual
 
 async function carregarJogo() {
     try {
         const res = await fetch(API_URL);
         const data = await res.json();
 
-        const jogo = data.events?.[0];
+      jogoAtual = data.events?.[0];
 
-        if (!jogo) {
+        if (!jogoAtual) {
             document.getElementById("jogo").innerHTML =
                 "Nenhum jogo encontrado";
             return;
@@ -39,8 +19,8 @@ async function carregarJogo() {
 
         document.getElementById("jogo").innerHTML = `
             <div style="text-align:center; color:white; padding-top:140px;">
-                <h2>${jogo.strHomeTeam} vs ${jogo.strAwayTeam}</h2>
-                <p>${formatarData(jogo.dateEvent)} - ${jogo.strTime?.slice(0,5)}</p>
+                <h2>${jogoAtual.strHomeTeam} vs ${jogoAtual.strAwayTeam}</h2>
+                <p>${formatarData(jogoAtual.dateEvent)} - ${jogoAtual.strTime?.slice(0,5)}</p>
             </div>
         `;
     } catch (err) {
@@ -57,7 +37,7 @@ carregarJogo();
 }
 
 function salvarPalpite(jogo, placarCasa, placarFora) {
-    const palpites = JSON.parse(localStorage.getItem("Palpites")) || [];
+    const palpites = JSON.parse(localStorage.getItem("palpites")) || [];
 
     palpites.push({
         jogo: `${jogo.strHomeTeam} vs ${jogo.strAwayTeam}`,
@@ -93,3 +73,35 @@ function moverParaHistorico() {
     localStorage.setItem("historico", JSON.stringify(historico));
 }
 }
+
+const menuBtn = document.getElementById("menu-btn");
+const sidebar = document.getElementById("sidebar");
+const closeBtn = document.getElementById("close-btn")
+
+menuBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("aberta");
+})
+
+closeBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("aberta");
+})
+
+function atualizarHora() {
+    const agora = new Date();
+    document.getElementById("time").textContent =
+     agora.toLocaleString("pt-BR");
+}
+
+atualizarHora();
+setInterval(atualizarHora, 1000);
+
+const placarCasa = document.getElementById("placar1");
+const placarFora = document.getElementById("placar2")
+
+const botao = document.getElementById("submitScore");//
+botao.addEventListener("click", () => {
+    salvarPalpite(jogoAtual, placarCasa.value, placarFora.value);
+});
+
+// ---------------------------------------------------------------------------------------
+
