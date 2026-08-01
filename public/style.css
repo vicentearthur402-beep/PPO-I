@@ -244,18 +244,26 @@ section {
 }
 
 .btn {
-    width: 30%;
-    height: 42px;
+ display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-    border: none;
+  padding: 0 14px;
+  min-height: 42px;
 
-    cursor: pointer;
+  border: 1px solid transparent;
 
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-primary {
     background: #fff;
-
     color: #06120a;
+}
 
-    font-weight: 700;
+.btn-enviar {
+    width: 30%;
 }
 
 #zico {
@@ -410,7 +418,12 @@ input[type="number"] {
 
 .campo-placar {
     display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: "Bebas Neue", sans-serif;
 }
+
 
 input:disabled,
 button:disabled {

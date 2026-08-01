@@ -77,18 +77,18 @@ function renderJogos() {
 <div class="linha-placar">
   <div class="campo-placar">
     <label>Casa</label>
-    <input inputmode="numeric" type="number" value="0" min="0" ${fechado ? "disabled" : ""}>
+    <input inputmode="numeric" type="number" value="" placeholder="0" min="0" ${fechado ? "disabled" : ""}>
   </div>
 
   <span class="x">X</span>
 
   <div class="campo-placar">
     <label>Fora</label>
-    <input inputmode="numeric" type="number" value="0" min="0" ${fechado ? "disabled" : ""}>
+    <input inputmode="numeric" type="number" value="" placeholder="0" min="0" ${fechado ? "disabled" : ""}>
   </div>
 </div>
 
-        <button class="btn btn-enviar"
+        <button class="btn btn-primary btn-enviar"
                 ${fechado ? "disabled" : ""}
                 onclick="enviarPalpite('${jogo.idEvent}', this)">
           ${fechado ? "Jogo fechado" : "Enviar Palpite"}
@@ -154,8 +154,9 @@ function enviarPalpite(idEvent, botao) {
 
     const card = botao.closest(".card-jogo");
     const inputs = card.querySelectorAll("input");
-    const placarCasa = inputs[0].value;
-    const placarFora = inputs[1].value;
+
+    const placarCasa = Number(inputs[0].value || 0);
+    const placarFora = Number(inputs[1].value || 0);
 
     salvarPalpite(jogo, placarCasa, placarFora);
 }
@@ -215,13 +216,13 @@ const closeBtn = document.getElementById("close-btn")
 sidebar.classList.remove("aberta");
 
 menuBtn.addEventListener("click", () => {
-  sidebar.classList.add("aberta");
-  document.body.classList.add("sidebar-open");
+    sidebar.classList.add("aberta");
+    document.body.classList.add("sidebar-open");
 });
 
 closeBtn.addEventListener("click", () => {
-  sidebar.classList.remove("aberta");
-  document.body.classList.remove("sidebar-open");
+    sidebar.classList.remove("aberta");
+    document.body.classList.remove("sidebar-open");
 });
 
 function atualizarHora() {
@@ -273,9 +274,9 @@ setInterval(atualizarBloqueios, 30000);
 const overlay = document.getElementById("overlay");
 
 if (overlay) {
-  overlay.addEventListener("click", () => {
-    sidebar.classList.remove("aberta");
-    document.body.classList.remove("sidebar-open");
-  });
+    overlay.addEventListener("click", () => {
+        sidebar.classList.remove("aberta");
+        document.body.classList.remove("sidebar-open");
+    });
 }
 // ---------------------------------------------------------------------------------------
