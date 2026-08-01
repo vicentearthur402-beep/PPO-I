@@ -74,11 +74,19 @@ function renderJogos() {
         <h2>${jogo.strHomeTeam} vs ${jogo.strAwayTeam}</h2>
         <p class="meta">${formatarData(jogo.dateEvent)} - ${jogo.strTime?.slice(0, 5) || ""}</p>
 
-        <div class="linha-placar">
-          <input type="number" value="0" min="0" ${fechado ? "disabled" : ""}>
-          <span>X</span>
-          <input type="number" value="0" min="0" ${fechado ? "disabled" : ""}>
-        </div>
+<div class="linha-placar">
+  <div class="campo-placar">
+    <label>Casa</label>
+    <input inputmode="numeric" type="number" value="0" min="0" ${fechado ? "disabled" : ""}>
+  </div>
+
+  <span class="x">X</span>
+
+  <div class="campo-placar">
+    <label>Fora</label>
+    <input inputmode="numeric" type="number" value="0" min="0" ${fechado ? "disabled" : ""}>
+  </div>
+</div>
 
         <button class="btn btn-enviar"
                 ${fechado ? "disabled" : ""}
@@ -204,13 +212,17 @@ const menuBtn = document.getElementById("menu-btn");
 const sidebar = document.getElementById("sidebar");
 const closeBtn = document.getElementById("close-btn")
 
+sidebar.classList.remove("aberta");
+
 menuBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("aberta");
-})
+  sidebar.classList.add("aberta");
+  document.body.classList.add("sidebar-open");
+});
 
 closeBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("aberta");
-})
+  sidebar.classList.remove("aberta");
+  document.body.classList.remove("sidebar-open");
+});
 
 function atualizarHora() {
     if (!timeEl) return;
@@ -257,4 +269,13 @@ function atualizarBloqueios() {
 }
 
 setInterval(atualizarBloqueios, 30000);
+
+const overlay = document.getElementById("overlay");
+
+if (overlay) {
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("aberta");
+    document.body.classList.remove("sidebar-open");
+  });
+}
 // ---------------------------------------------------------------------------------------
