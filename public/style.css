@@ -1,13 +1,16 @@
 body {
-    background-color: rgb(220, 204, 204);
+    margin: 0;
+    background-color: #e9e5e5;
+    color: #111;
 }
 
-#title {
+.title {
     text-align: center;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 50px;
+    margin: 25px 12px 6px;
 }
 
 #time {
@@ -28,80 +31,26 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-#jogo {
-    background-color: black;
-    height: 350px;
-    width: 700px;
-     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 5px;
-}
-
-.placar {
-    position: absolute;
-    top: calc(50% + 200px);
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-.placar input {
-    width: 80px;
-    text-align: center;
-    font-size: 30px;
-    padding: 5px;
-}
-
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 220px;
-    height: 100vh;
-    background-color: #222;
-
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
-}
-
-.sidebar a {
-    color: white;
-    text-decoration: none;
-    padding: 15px 20px;
-    font-size: 20px;
-}
-
-.sidebar a:hover {
-    background-color: #444;
-}
-
-.conteudo {
-    margin-left: 220px;
-}
-
-#menu-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    font-size: 30px;
-    border: none;
-    background: none;
-    cursor: pointer;
+section {
+    width: min(920px, 92vw);
+    margin: 0 auto;
 }
 
 .sidebar {
     position: fixed;
     top: 0;
     left: -250px;
+
     width: 250px;
     height: 100vh;
+
     background-color: #222;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 20px;
+
     transition: left 0.3s ease;
 }
 
@@ -111,26 +60,188 @@ body {
 
 .sidebar a {
     display: block;
+
     color: white;
     text-decoration: none;
+
     padding: 15px;
+    font-size: 20px;
+}
+
+.sidebar a:hover {
+    background-color: #444;
+}
+
+#menu-btn {
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    font-size: 30px;
+
+    border: none;
+    background: none;
+
+    cursor: pointer;
 }
 
 #close-btn {
     background: none;
     border: none;
+
     color: white;
+
     font-size: 24px;
+
     cursor: pointer;
+
     align-self: flex-end;
+
     margin-right: 15px;
     margin-bottom: 10px;
+}
+
+.conteudo {
+    margin-left: 220px;
+}
+
+#jogo {
+    overflow-y: auto;
+
+    width: 100%;
+    height: auto;
+
+    background: rgba(255,255,255,.7);
+
+    border: 1px solid rgba(0,0,0,.08);
+
+    border-radius: 12px;
+
+    padding: 14px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.12);
+}
+
+.card-jogo {
+    background: #0b0b0b;
+
+    color: #fff;
+
+    border-radius: 12px;
+
+    padding: 16px;
+
+    text-align: center;
+
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+.card-jogo h2 {
+    margin: 0 0 6px;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    letter-spacing: .5px;
+
+    font-size: 30px;
+}
+
+.card-jogo .meta {
+    margin: 0 0 12px;
+
+    color: rgba(255,255,255,.75);
+
+    font-size: 14px;
+}
+
+.placar {
+    position: absolute;
+
+    top: calc(50% + 200px);
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.placar input {
+    width: 80px;
+
+    text-align: center;
+
+    font-size: 30px;
+
+    padding: 5px;
+}
+
+.linha-placar {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 10px 0 14px;
+}
+
+.linha-placar span {
+    font-weight: 700;
+
+    opacity: .8;
+}
+
+.linha-placar input {
+    width: 76px;
+    height: 42px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    background: rgba(255,255,255,.06);
+
+    color: #fff;
+
+    text-align: center;
+
+    font-size: 22px;
+
+    outline: none;
 }
 
 #submitScore {
     width: 67%;
     height: 50px;
-    
+}
+
+.btn {
+    width: 30%;
+    height: 42px;
+
+    border: none;
+
+    cursor: pointer;
+
+    background: #ffffff;
+
+    color: #06120a;
+
+    font-weight: 700;
 }
 
 #zico {
@@ -145,4 +256,111 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="number"] {
     -moz-appearance: textfield;
+}
+
+#historico{
+  width: min(920px, 92vw);
+  margin: 20px auto 60px;
+  padding: 14px;
+
+  background: rgba(255,255,255,.7);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.12);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.historico-titulo{
+  grid-column: 1 / -1;
+  margin: 0 0 6px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 34px;
+  color: #111;
+}
+
+.card-historico{
+  background: #0b0b0b;
+  color: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.card-historico .meta{
+  margin: 6px 0 10px;
+  color: rgba(255,255,255,.75);
+  font-size: 14px;
+}
+
+.card-historico .placar-registrado{
+  margin: 0;
+  font-size: 16px;
+}
+
+.historico-vazio{
+  color: #111;
+  text-align: center;
+  margin: 0;
+}
+
+.card-topo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.btn-excluir{
+  border: 1px solid rgba(255,255,255,.08);
+  background: transparent;
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.toast-container{
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast{
+  pointer-events: none;
+  background: #111;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.25);
+  border: 1px solid rgba(255,255,255,.12);
+  font-size: 14px;
+  max-width: min(520px, 92vw);
+}
+
+.rodada-bar{
+  width: min(920px, 92vw);
+  margin: 10px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.rodada-bar button{
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 700;
 }
